@@ -67,6 +67,9 @@ func TestParseResponse(t *testing.T) {
 	if len(got.Results) != 1 {
 		t.Fatalf("len(Results) = %d, want 1", len(got.Results))
 	}
+	if got.Results[0].Rank != 1 {
+		t.Fatalf("Results[0].Rank = %d, want 1", got.Results[0].Rank)
+	}
 	if got.Results[0].Title != "The Go Programming Language" {
 		t.Fatalf("Results[0].Title = %q", got.Results[0].Title)
 	}
@@ -134,6 +137,9 @@ func TestClientSearch(t *testing.T) {
 
 	if len(got.Results) != 1 {
 		t.Fatalf("len(Results) = %d, want 1", len(got.Results))
+	}
+	if got.Results[0].Rank != 1 {
+		t.Fatalf("Results[0].Rank = %d, want 1", got.Results[0].Rank)
 	}
 	if got.Results[0].Title != "Go" {
 		t.Fatalf("Results[0].Title = %q, want Go", got.Results[0].Title)

@@ -44,5 +44,5 @@ resp, err := client.Search(
 Search responses include:
 
 - `InstantAnswer` when DuckDuckGo shows a zero-click answer.
-- `Results` with title, URL, snippet, display URL, and source host.
+- `Results` with rank, title, URL, snippet, display URL, and source host.
 - `HasMore` and `NextPage` when another results page is available.

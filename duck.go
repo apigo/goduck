@@ -51,6 +51,7 @@ const (
 
 // Result is a single web search result.
 type Result struct {
+	Rank    int
 	Title   string
 	URL     string
 	Snippet string
@@ -286,6 +287,7 @@ func parseResponse(body []byte, query string, maxResults int) (*Response, error)
 				continue
 			}
 			response.Results = append(response.Results, result)
+			response.Results[len(response.Results)-1].Rank = len(response.Results)
 			if maxResults > 0 && len(response.Results) >= maxResults {
 				break
 			}
